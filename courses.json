@@ -1,8 +1,1 @@
-[
-    {"CS Classes":[
-        { "CSE 121": ["CSE 122", "CSE 123"]},
-        { "firstName":"Anna", "lastName":"Smith" },
-        { "firstName":"Peter", "lastName":"Jones" }
-    ]},
-    { "Science":[]}
-]
+{"key": "name"}
