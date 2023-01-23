@@ -5,6 +5,7 @@
         {"CSE 123": ["CSE 154"]}
     ]},
     { "Science":[
-        {"Physics 121": ""}
+        {"Physics 121": ""},
+        {"test": ""}
     ]}
 ]
