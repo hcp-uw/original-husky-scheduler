@@ -4,5 +4,7 @@
         { "firstName":"Anna", "lastName":"Smith" },
         { "firstName":"Peter", "lastName":"Jones" }
     ]},
-    { "Science":[]}
+    { "Science":[
+        {"Physics 121": ""}
+    ]}
 ]
