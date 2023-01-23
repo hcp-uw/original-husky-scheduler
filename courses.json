@@ -1,8 +1,7 @@
 [
-    {"CS Classes":[
+    {"CSE":[
         { "CSE 121": ["CSE 122", "CSE 123"]},
-        { "firstName":"Anna", "lastName":"Smith" },
-        { "firstName":"Peter", "lastName":"Jones" }
+        { "CSE 122": ["CSE 123"]}
     ]},
     { "Science":[
         {"Physics 121": ""}
