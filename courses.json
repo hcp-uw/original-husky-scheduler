@@ -2,7 +2,8 @@
     {"CSE":[
         { "CSE 121": ["CSE 122", "CSE 123"]},
         { "CSE 122": ["CSE 123"]},
-        {"CSE 123": ["CSE 154", "CSE 163", "CSE 311"]}
+        {"CSE 123": ["CSE 154", "CSE 163", "CSE 311", "CSE 331", 
+                    "CSE 340", "CSE 341", "CSE 351"]}
     ]},
     { "Science":[
         {"Physics 121": ""},
