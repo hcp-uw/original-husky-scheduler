@@ -1,4 +1,4 @@
-
+from uwtools import course_catalogs
 import json
 import uwtools
 
