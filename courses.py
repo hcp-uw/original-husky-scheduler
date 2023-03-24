@@ -6,9 +6,8 @@ from uwtools import setup, course_catalog_dict
 # python Dictionary
 course_catalog_dict = uwtools.course_catalogs(struct='dict')
 
-# 'w' = write?
-# now don't we have to 'r' = read in this file or another 
-with open('courses.json', mode='w') as f:
+with open('parse.json', mode='w') as f:
     # Indent and sort_keys are optional parameters, but help when looking 
     # through the .json file
     json.dump(course_catalog_dict, f, indent=4, sort_keys=True)
+
