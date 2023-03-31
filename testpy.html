@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Course Catalog</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+
+    <py-config>
+      packages = ["matplotlib", "pandas", "uwtools"]
+    </py-config>
+
+    <py-script>
+    import json
+    import uwtools
+
+    course_catalog_dict = uwtools.course_catalogs(struct='dict')
+
+    with open('parse.json', mode='w') as f:
+        json.dump(course_catalog_dict, f, indent=4, sort_keys=True)
+
+    with open('parse.json', mode='r') as f:
+        course_catalog_dict = json.loads(f.read())
+
+
+    OG_data = course_catalogs(campuses=['Seattle', 'Bothell', 'Tacoma'], struct='dict', show_progress=False)
+    
+        
+    </py-script>
+
+    <py-repl>
+      OG_data
+    </py-repl>
+  </body>
+</html>
