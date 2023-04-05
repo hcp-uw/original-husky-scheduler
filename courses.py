@@ -1,6 +1,5 @@
 import json
 import uwtools
-from uwtools import setup, course_catalog_dict
 
 # Get the course catalogs from the uwtools library as a
 # python Dictionary
