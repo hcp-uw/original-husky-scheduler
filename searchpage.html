@@ -13,7 +13,9 @@
             justify-content: left;
         }
         #search_bar {
-
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
         #generate_button {
             color: black;
@@ -27,7 +29,6 @@
             border-radius: 100px;
             margin: 0 auto;
         }
-
     </style>
 </head>
 <body>
@@ -37,12 +38,27 @@
         </a>
     </header>
     <div id="search_bar">
-
+        <input type="text" placeholder="Search...">
     </div>
     <div>
         <p id="generate_button">Generate</p>
     </div>
     <script>
+        
+        document.getElementById("generate_button").addEventListener("click", function() {
+            loadJSON();
+        });
+
+        function loadJSON() {
+             fetch("./courses.json")
+             .then(response => response.json())
+             .then(data => {
+                const input = document.getElementById("search_bar").getElementsByTagName("input")[0];
+                const temp = JSON.parse(input);
+                console.log(input);
+            })
+            .catch(error => console.error(error));
+        }
 
     </script>
     
