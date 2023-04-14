@@ -38,13 +38,13 @@
         </a>
     </header>
     <div id="search_bar">
-        <input type="text" placeholder="Search...">
+        <input type="text" id="userClass" placeholder="Search...">
     </div>
     <div>
-        <p id="generate_button">Generate</p>
+        <p id="generate_button" onclick="loadJSON()">Generate</p>
     </div>
     <script>
-        
+        let userInput = document.querySelector("#userClass");
         // const json = fs.readFileSync("/courses.json", "utf8");
         // const data = JSON.parse(json);
         // getClasses();
@@ -54,10 +54,16 @@
         // }
 
         // document.getElementById("generate_button").addEventListener("click", function() {
-        loadJSON();
+        // loadJSON();
         // });
 
         function loadJSON() {
+            // I know that I am getting user input here
+            // however, when I try to put it in place of 
+            // "AA101" below it does not work
+            // I am not sure right now how to change the const 
+            // to make it work
+            const input = userInput.value;
              fetch("./courses.json")
              // turn into something javascript can understand
              .then(response => response.json())
