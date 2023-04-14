@@ -45,19 +45,35 @@
     </div>
     <script>
         
-        document.getElementById("generate_button").addEventListener("click", function() {
-            loadJSON();
-        });
+        // const json = fs.readFileSync("/courses.json", "utf8");
+        // const data = JSON.parse(json);
+        // getClasses();
+        // async function getClasses(){
+        //     const response = await fetch(data);
+        //     console.log(data);
+        // }
+
+        // document.getElementById("generate_button").addEventListener("click", function() {
+        loadJSON();
+        // });
 
         function loadJSON() {
              fetch("./courses.json")
+             // turn into something javascript can understand
              .then(response => response.json())
              .then(data => {
-                const input = document.getElementById("search_bar").getElementsByTagName("input")[0];
-                const temp = JSON.parse(input);
-                console.log(input);
-            })
-            .catch(error => console.error(error));
+                console.log(data.AA101)
+             });
+
+            //  const input = search_bar.value;
+            //  console.log(input);
+            //  .then(data => {
+
+            //     const input = document.getElementById("search_bar").getElementsByTagName("input")[0];
+            //     const temp = JSON.parse(input);
+            //     console.log(input);
+            // })
+            // .catch(error => console.error(error));
         }
 
     </script>
