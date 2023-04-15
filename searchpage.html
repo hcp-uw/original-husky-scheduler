@@ -45,30 +45,33 @@
     </div>
     <script>
         let userInput = document.querySelector("#userClass");
-        // const json = fs.readFileSync("/courses.json", "utf8");
-        // const data = JSON.parse(json);
-        // getClasses();
-        // async function getClasses(){
-        //     const response = await fetch(data);
-        //     console.log(data);
-        // }
-
-        // document.getElementById("generate_button").addEventListener("click", function() {
-        // loadJSON();
-        // });
-
+        
+        // TO SEE THIS FUNCTION ACTUALLY IN ACTION INPUT THE CLASS 
+        // INTO THE SEARCH BAR WITH ALL CAPS AND GENERATE.
+        // HAVE YOUR INSPECT PULLED UP AND GO TO CONSOLE TO SEE
+        // THE OUTPUT.
+        // What still needs to be done?
+        //  - we need to add a promise to check if the user put 
+        // in a class that we do not have in our json file we need 
+        // to return them something like "that class does not exist"
+        //  - make the user input upper case no matter what to be 
+        // able to actually access the key's becuase rn "aa101" does not work
+        // however "AA101" does
+        //  - also figure out how to actually put the info we get from the 
+        // json on the website to actually be able to see the info
         function loadJSON() {
-            // I know that I am getting user input here
-            // however, when I try to put it in place of 
-            // "AA101" below it does not work
-            // I am not sure right now how to change the const 
-            // to make it work
-            const input = userInput.value;
+            const inputF = userInput.value;
              fetch("./courses.json")
              // turn into something javascript can understand
              .then(response => response.json())
              .then(data => {
-                console.log(data.AA101)
+                // reads in whatever class the user passes in 
+                // from the text box
+                const classInfo = data[inputF];
+                console.log(classInfo)
+                // using classInfo."" you can go into the deeper keys
+                // for example here it goes to Campus which returns "Seattle"
+                console.log(classInfo.Campus)
              });
 
             //  const input = search_bar.value;
