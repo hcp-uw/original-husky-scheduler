@@ -43,6 +43,11 @@
     <div>
         <p id="generate_button" onclick="loadJSON()">Generate</p>
     </div>
+
+    <p>
+        Campus: <span id ="currCamp"></span><br/>
+        Error: <span id ="errorGot"></span>
+    </p>
     <script>
         let userInput = document.querySelector("#userClass");
         
@@ -61,10 +66,10 @@
         // json on the website to actually be able to see the info
         function loadJSON() {
             const inputF = userInput.value;
-             fetch("./courses.json")
-             // turn into something javascript can understand
-             .then(response => response.json())
-             .then(data => {
+            fetch("./courses.json")
+            // turn into something javascript can understand
+            .then(response => response.json())
+            .then(data => {
                 // reads in whatever class the user passes in 
                 // from the text box
                 const classInfo = data[inputF.toString().toUpperCase()];
@@ -72,9 +77,21 @@
                 // using classInfo."" you can go into the deeper keys
                 // for example here it goes to Campus which returns "Seattle"
                 console.log(classInfo.Campus)
-             });
-
-            //  const input = search_bar.value;
+                // This is how we are going to actually display the info to the user
+                // If we simply want to just get rid of variables like the result of the 
+                // user input after they put it in use this layout.
+                // You can use "block" too but what that does is that it 
+                // makes it so you can't put anything within that variable. 
+                // Does not really get rid of it
+                // ().style.display = "none";
+                document.getElementById('currCamp').textContent = classInfo.Campus;
+            })
+            // this runs when we get an undefined value
+            .catch(error => {console.log("Please put in another class!")
+                document.getElementById('errorGot').textContent = "Please put in another class!"
+        })
+        }
+                    //  const input = search_bar.value;
             //  console.log(input);
             //  .then(data => {
 
@@ -83,8 +100,6 @@
             //     console.log(input);
             // })
             // .catch(error => console.error(error));
-        }
-
     </script>
     
 </body>
