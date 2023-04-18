@@ -52,18 +52,9 @@
         let userInput = document.querySelector("#userClass");
         
         // TO SEE THIS FUNCTION ACTUALLY IN ACTION INPUT THE CLASS 
-        // INTO THE SEARCH BAR WITH ALL CAPS AND GENERATE.
+        // INTO THE SEARCH BAR AND GENERATE.
         // HAVE YOUR INSPECT PULLED UP AND GO TO CONSOLE TO SEE
         // THE OUTPUT.
-        // What still needs to be done?
-        //  - we need to add a promise to check if the user put 
-        // in a class that we do not have in our json file we need 
-        // to return them something like "that class does not exist"
-        //  - make the user input upper case no matter what to be 
-        // able to actually access the key's becuase rn "aa101" does not work
-        // however "AA101" does (LINE 70)
-        //  - also figure out how to actually put the info we get from the 
-        // json on the website to actually be able to see the info
         function loadJSON() {
             const inputF = userInput.value;
             fetch("./courses.json")
@@ -89,17 +80,8 @@
             // this runs when we get an undefined value
             .catch(error => {console.log("Please put in another class!")
                 document.getElementById('errorGot').textContent = "Please put in another class!"
-        })
+            })
         }
-                    //  const input = search_bar.value;
-            //  console.log(input);
-            //  .then(data => {
-
-            //     const input = document.getElementById("search_bar").getElementsByTagName("input")[0];
-            //     const temp = JSON.parse(input);
-            //     console.log(input);
-            // })
-            // .catch(error => console.error(error));
     </script>
     
 </body>
