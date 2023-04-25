@@ -11,22 +11,44 @@ body
     color: #4f12c0;
 }
 
+/* .slide-container
+{
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(to right, rgb(36, 9, 120), rgb(0,0,0));
+} */
 .container
 {
     width: 1000px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
+    /*this sort of works but play around with the line below!*/
+    grid-column-gap: 50px
 }
 .card
 {
     position: relative;
     left: -6%;
-    width: 300px;
+    width: 500px;
     height: 370px;
     transition: 0.3s ease-out;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
+    filter: saturate(10%);
+    
 }
+
+/* .button
+{
+   position: absolute; 
+   width: 240px;
+   height: 370px;
+   transition: .5s;
+   background-color: ;
+} */
 
 .card .imgbox
 {
@@ -46,6 +68,7 @@ body
     height: 80%;
     display: block;
     transition: 0.5s;
+    
 }
 
 .card .content
@@ -86,6 +109,7 @@ body
 {
     transform: translateY(0);
     opacity: 1;
+    filter: saturate(100%);
 
 }
 
@@ -97,4 +121,9 @@ h2
 .card:hover
 {
     box-shadow: 0 0 5em rgba(0, 0, 0, 0.4);
+    filter: saturate(100%);
+}
+.card .imgbox img:hover
+{
+    filter: saturate(100%);
 }
