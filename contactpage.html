@@ -50,5 +50,31 @@
             </div>
         </form>
     </div>
+
+    <!--
+        - need each input box to correlate to "user" categories
+    -->
+    <script>
+        const fs = require('fs');
+
+        // create a JSON object
+        const user = {
+            "name": "John Doe",
+            "email": "john123@gmail.com",
+            "feedback": "good"
+        };
+
+        // convert JSON object to string
+        const data = JSON.stringify(user);
+
+        // write JSON string to a file
+        fs.writeFile('feedback.json', data, (err) => {
+            if (err) {
+                throw err;
+            }
+            console.log("JSON data is saved.");
+        });
+
+    </script>
 </body>
 </html>
