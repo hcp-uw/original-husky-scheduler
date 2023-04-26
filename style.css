@@ -27,16 +27,20 @@ body
     flex-wrap: nowrap;
     justify-content: space-between;
     /*this sort of works but play around with the line below!*/
-    grid-column-gap: 50px
+    grid-column-gap: 20px
 }
 .card
 {
     position: relative;
-    left: -6%;
+    left: -1%;
     width: 500px;
     height: 370px;
     transition: 0.3s ease-out;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
+    /* if we have no 0 then the shadow looks very clear*/
+    /* also try to figure out how to make shadow more clear but just changing color
+    to like gold makes it brighter rgba(71, 36, 100, 0.3)
+    fix the shadow to look better
+    box-shadow: 0 3px 15px gold;*/
     filter: saturate(10%);
     
 }
@@ -120,7 +124,7 @@ h2
 
 .card:hover
 {
-    box-shadow: 0 0 5em rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 5em gold;
     filter: saturate(100%);
 }
 .card .imgbox img:hover
