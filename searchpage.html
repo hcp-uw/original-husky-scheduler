@@ -66,14 +66,15 @@
         // HAVE YOUR INSPECT PULLED UP AND GO TO CONSOLE TO SEE
         // THE OUTPUT.
         function loadJSON() {
-            const inputF = userInput.value;
+            const input = userInput.value;
+            const inputF = input.toString().toUpperCase().trimEnd();
             fetch("./courses.json")
             // turn into something javascript can understand
             .then(response => response.json())
             .then(data => {
                 // reads in whatever class the user passes in 
                 // from the text box
-                const classInfo = data[inputF.toString().toUpperCase()];
+                const classInfo = data[inputF];
                 console.log(classInfo)
                 // using classInfo."" you can go into the deeper keys
                 // for example here it goes to Campus which returns "Seattle"
