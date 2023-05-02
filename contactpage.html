@@ -44,7 +44,7 @@
                     <!-- 
                         * Fix the dynamic text box, the user should not be able to manipulate the size of the box
                         * Fix text alignment, the test appears in the middle of the textbox not the front
-
+                        * Once user hits sumbit, needs some kind of thank you/signification that the form submitted successfully
                      -->
                     <textarea name="txtMsg" id="feedback" class="form-control" placeholder="" style="width: 600px; 
                     height: 150px; margin-bottom: 8px;">
@@ -67,8 +67,11 @@
         let rate5 = document.querySelector("#E");
 
         function feedbackForm() {
+<<<<<<< Updated upstream
             var fs = require('fs');
 
+=======
+>>>>>>> Stashed changes
             let rate = 0;
 
             if (rate1.value != null) {
@@ -90,6 +93,9 @@
             if (rate5.value != null) {
                 rate = 5;
             }
+
+            // figure out why require() isnt working
+            const fs = require('fs');
 
             // create a JSON object
             const user = {
