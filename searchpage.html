@@ -28,6 +28,18 @@
             line-height: 200px;
             border-radius: 100px;
             margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        #course_info {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #E7CFEF;
+            border-radius: 30px;
+            padding: 10px;
+            margin: auto auto;
+            max-width: 600px;
         }
     </style>
 </head>
@@ -43,37 +55,49 @@
     <div>
         <p id="generate_button" onclick="loadJSON()">Generate</p>
     </div>
-
-    <p>
-        Campus: <span id ="currCamp"></span><br/>
-        Error: <span id ="errorGot"></span>
-    </p>
+    <div id="course_info"></div>
     <script>
         let userInput = document.querySelector("#userClass");
-        
-        // INFO WE WANT TO PUT INTO WEBSITE
-        // - Class name "AA101"
-        // - Course Name "Air and Space Vehicles"
-        // - Campus
-        // - Offered with
-        // - Description
-        // - Credits
-        // - Pre-requisites
-        // - Quarters offered
-
-        // TO SEE THIS FUNCTION ACTUALLY IN ACTION INPUT THE CLASS 
-        // INTO THE SEARCH BAR AND GENERATE.
-        // HAVE YOUR INSPECT PULLED UP AND GO TO CONSOLE TO SEE
-        // THE OUTPUT.
         function loadJSON() {
-            const inputF = userInput.value;
+            const input = userInput.value;
+            const inputF = input.toString().toUpperCase().trimEnd();
             fetch("./courses.json")
             // turn into something javascript can understand
+<<<<<<< HEAD
+                .then(response => response.json())
+                .then(data => {
+                    // reads in whatever class the user passes in 
+                    // from the text box
+                    const classInfo = data[inputF.toString().toUpperCase()];
+                    // INFO ON THE WEBSITE 
+                    // - Class name
+                    // - Course Name
+                    // - Campus
+                    // - Offered with
+                    // - Description
+                    // - Credits
+                    // - Pre-requisites
+                    // - Quarters offered
+                    course_info.innerHTML = `
+                    <h2> ${classInfo["Department Name"] + classInfo["Course Number"]} </h2>
+                    <p>Course Name: ${classInfo["Course Name"]}</p>
+                    <p>Campus: ${classInfo.Campus}</p>
+                    <p>Offered With: ${classInfo["Offered with"]}</p>
+                    <p>Description: ${classInfo.Description}</p>
+                    <p>Credits: ${classInfo.Credits}</p>
+                    <p>Pre-Requisites: ${classInfo.Prerequisites}</p>
+                    <p>Quarters Offered: ${classInfo["Quarters Offered"]} </p>
+                    `;
+                    course_info.style.display = "flex";
+                })
+                .catch(error => {console.log("Please put in another class!")
+                document.getElementById('course_info').textContent = "Please put in another class!"
+=======
             .then(response => response.json())
             .then(data => {
                 // reads in whatever class the user passes in 
                 // from the text box
-                const classInfo = data[inputF.toString().toUpperCase()];
+                const classInfo = data[inputF];
                 console.log(classInfo)
                 // using classInfo."" you can go into the deeper keys
                 // for example here it goes to Campus which returns "Seattle"
@@ -90,9 +114,9 @@
             // this runs when we get an undefined value
             .catch(error => {console.log("Please put in another class!")
                 document.getElementById('errorGot').textContent = "Please put in another class!"
+>>>>>>> 83fc591c7bd8315415f731f14e42086777da293e
             })
         }
     </script>
-    
 </body>
 </html>
