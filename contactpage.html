@@ -50,7 +50,7 @@
                     height: 150px; margin-bottom: 8px;">
                     </textarea>
                     <div class="form-group">
-                        <input type="submit" name="btnsubmit" class="btnFeedback" value="Submit" style="outline: none;" onclick="feedbackForm()">
+                        <input type="button" name="btnsubmit" class="btnFeedback" value="Submit" style="outline: none;" onclick="feedbackForm()">
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
         let rate5 = document.querySelector("#E");
 
         function feedbackForm() {
-            // const fs = require('fs');
+            var fs = require('fs');
 
             let rate = 0;
 
@@ -103,7 +103,7 @@
             const data = JSON.stringify(user);
 
             // write JSON string to a file
-            fs.writeFile('feedback.json', data, (err) => {
+            fs.createFile('feedback.json', data, (err) => {
                 if (err) {
                     throw err;
                 }
