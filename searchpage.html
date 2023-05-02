@@ -60,14 +60,15 @@
         let userInput = document.querySelector("#userClass");
         function loadJSON() {
             const input = userInput.value;
-            const inputF = input.toString().toUpperCase().trimEnd();
+            const inputF = input.toString().trimEnd();
+            const inputNoSpace = inputF.split(" ").join("");
             fetch("./courses.json")
             // turn into something javascript can understand
                 .then(response => response.json())
                 .then(data => {
                     // reads in whatever class the user passes in 
                     // from the text box
-                    const classInfo = data[inputF.toString().toUpperCase()];
+                    const classInfo = data[inputNoSpace.toString().toUpperCase()];
                     // INFO ON THE WEBSITE 
                     // - Class name
                     // - Course Name
@@ -78,7 +79,7 @@
                     // - Pre-requisites
                     // - Quarters offered
                     course_info.innerHTML = `
-                    <h2> ${classInfo["Department Name"] + classInfo["Course Number"]} </h2>
+                    <h2> ${classInfo["Department Name"] + " " + classInfo["Course Number"]} </h2>
                     <p>Course Name: ${classInfo["Course Name"]}</p>
                     <p>Campus: ${classInfo.Campus}</p>
                     <p>Offered With: ${classInfo["Offered with"]}</p>
@@ -90,7 +91,9 @@
                     course_info.style.display = "flex";
                 })
                 .catch(error => {console.log("Please put in another class!")
-                document.getElementById('course_info').textContent = "Please put in another class!"
+                course_info.textContent = "Please put in another class!"
+                course_info.style.width = "fit-content";
+                course_info.style.display = "flex";
             })
         }
     </script>
