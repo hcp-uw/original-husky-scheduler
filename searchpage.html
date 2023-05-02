@@ -63,7 +63,6 @@
             const inputF = input.toString().toUpperCase().trimEnd();
             fetch("./courses.json")
             // turn into something javascript can understand
-<<<<<<< HEAD
                 .then(response => response.json())
                 .then(data => {
                     // reads in whatever class the user passes in 
@@ -92,29 +91,6 @@
                 })
                 .catch(error => {console.log("Please put in another class!")
                 document.getElementById('course_info').textContent = "Please put in another class!"
-=======
-            .then(response => response.json())
-            .then(data => {
-                // reads in whatever class the user passes in 
-                // from the text box
-                const classInfo = data[inputF];
-                console.log(classInfo)
-                // using classInfo."" you can go into the deeper keys
-                // for example here it goes to Campus which returns "Seattle"
-                console.log(classInfo.Campus)
-                // This is how we are going to actually display the info to the user
-                // If we simply want to just get rid of variables like the result of the 
-                // user input after they put it in use this layout.
-                // You can use "block" too but what that does is that it 
-                // makes it so you can't put anything within that variable. 
-                // Does not really get rid of it
-                // ().style.display = "none";
-                document.getElementById('currCamp').textContent = classInfo.Campus;
-            })
-            // this runs when we get an undefined value
-            .catch(error => {console.log("Please put in another class!")
-                document.getElementById('errorGot').textContent = "Please put in another class!"
->>>>>>> 83fc591c7bd8315415f731f14e42086777da293e
             })
         }
     </script>
