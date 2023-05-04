@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script data-main = "scripts/main" src = "save.js"></script>
 </head>
 <link rel="stylesheet" href="contactpagestyle.css">
 <body>
@@ -50,66 +51,74 @@
                     height: 150px; margin-bottom: 8px;">
                     </textarea>
                     <div class="form-group">
-                        <input type="button" name="btnsubmit" class="btnFeedback" value="Submit" style="outline: none;" onclick="feedbackForm()">
+                        <button id="btnsubmit" class="btnFeedback" value="Submit" style="outline: none;" ></button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
     <script>
-        let userName = document.querySelector("#userName");
-        let email = document.querySelector("#email");
-        let feedback = document.querySelector("#feedback");
-        let rate1 = document.querySelector("#A");
-        let rate2 = document.querySelector("#B");
-        let rate3 = document.querySelector("#C");
-        let rate4 = document.querySelector("#D");
-        let rate5 = document.querySelector("#E");
+        // function test(){
+        //     const fs = require('fs');
+        // }
+        // test();
 
-        function feedbackForm() {
-            var fs = require('fs');
+        // function feedbackForm() {
+        //     let userName = document.querySelector("#userName");
+        //     let email = document.querySelector("#email");
+        //     let feedback = document.querySelector("#feedback");
+        //     let rate1 = document.querySelector("#A");
+        //     let rate2 = document.querySelector("#B");
+        //     let rate3 = document.querySelector("#C");
+        //     let rate4 = document.querySelector("#D");
+        //     let rate5 = document.querySelector("#E");
+        //     let rate = 0;
 
-            let rate = 0;
+        //     if (rate1.value != null) {
+        //         rate = 1;
+        //     }
 
-            if (rate1.value != null) {
-                rate = 1;
-            }
+        //     if (rate2.value != null) {
+        //         rate = 2;
+        //     }
 
-            if (rate2.value != null) {
-                rate = 2;
-            }
+        //     if (rate3.value != null) {
+        //         rate = 3;
+        //     }
 
-            if (rate3.value != null) {
-                rate = 3;
-            }
+        //     if (rate4.value != null) {
+        //         rate = 4;
+        //     }
 
-            if (rate4.value != null) {
-                rate = 4;
-            }
+        //     if (rate5.value != null) {
+        //         rate = 5;
+        //     }
 
-            if (rate5.value != null) {
-                rate = 5;
-            }
+        //     // create a JSON object
+        //     const user = {
+        //         "name": userName.value,
+        //         "email": email.value,
+        //         "feedback": feedback.value,
+        //         "rating": rate
+        //     };
 
-            // create a JSON object
-            const user = {
-                "name": userName.value,
-                "email": email.value,
-                "feedback": feedback.value,
-                "rating": rate
-            };
-
-            // convert JSON object to string
-            const data = JSON.stringify(user);
-
-            // write JSON string to a file
-            fs.createFile('feedback.json', data, (err) => {
-                if (err) {
-                    throw err;
-                }
-                console.log("JSON data is saved.");
-            });
-        }
+        //     const finished = (error) => {
+        //         if(error){
+        //             console.error(error)
+        //             return;
+        //         }
+        //     }
+        //     // convert JSON object to string
+        //     const data = JSON.stringify(user);
+        //     fs.writeFile('feedback.json',jsonData,finished)
+        //     // write JSON string to a file
+        //     // fs.createFile('feedback.json', data, (err) => {
+        //     //     if (err) {
+        //     //         throw err;
+        //     //     }
+        //     //     console.log("JSON data is saved.");
+        //     // });
+        // }
     </script>
 </body>
 </html>
