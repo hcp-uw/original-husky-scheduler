@@ -7,18 +7,32 @@ header img {
 
 body {
     background: linear-gradient(to bottom, #E1C2FF, #fff);
+    font-family: "Open Sans", sans-serif;
 }
 
+
 .feedback-form {
-    background: #D9D9D998;
+    background: #F5F5F5;
+    background-image: linear-gradient(to bottom, #F5F5F5, #EAEAEA)
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     margin-top: 7%;
     margin-bottom: 3%;
     margin-left: 10%;
     margin-right: 10%;
 }
 
+div {
+    padding: 10px;
+}
+
 .feedback-form .form-control {
     border-radius: 1rem;
+    resize: none;
+    border: none; 
+    height: 25px;
+    padding-left: 10px;
 }
 
 feedback-image {
@@ -45,24 +59,72 @@ feedback-image {
     margin-top: -10%;
     text-align: center;
     color: #000000;
-    font-family: Arial, sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
-.feedback-form .btnfeedback {
-    width: 50%;
+.feedback-form .btnFeedback {
     border: none;
     border-radius: 1rem;
-    padding: 1.5%;
-    background: #D9D9D9;
+    padding: 10px 60px;
+    background: #E1C2FF;
     font-weight: 600;
+    font-size: 22px;
     color: #fff;
     cursor: pointer;
-    font-family: Arial, sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
 .feedback-form p {
     margin-top: 10px;
     margin-bottom: 3px;
     color: #000000;
-    font-family: Arial, sans-serif;
+    font-family: Montserrat, sans-serif;
+}
+
+.popup {
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }

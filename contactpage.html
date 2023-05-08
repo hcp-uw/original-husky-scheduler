@@ -31,9 +31,11 @@
                     <div class="form-group">
                         <input type="text" id="userName" class="form-control" placeholder="Name">
                     </div>
+
                     <div class="form-group">
                         <input type="text" id="email" class="form-control" placeholder="Email">
                     </div>
+
                     <div class="form-group">
                         <p>How would you rate your experience from 1 to 5?</p>
                         1<input type="radio" id="A">
@@ -48,15 +50,33 @@
                         * Once user hits sumbit, needs some kind of thank you/signification that the form submitted successfully
                      -->
                     <textarea name="txtMsg" id="feedback" class="form-control" placeholder="" style="width: 600px; 
-                    height: 150px; margin-bottom: 8px;">
-                    </textarea>
+                    height: 150px; margin-bottom: 8px; vertical-align: top; padding-top: 10px; padding-left: 10px;"></textarea>
                     <div class="form-group">
-                        <button id="btnsubmit" class="btnFeedback" value="Submit" style="outline: none;" onclick="returnText()"></button>
+                        <button type="submit" class="btnFeedback" onclick="openPopup()">Submit</button>
+                        <div class = "popup" id="popup">
+                            <img src="tick.png">
+                            <h2>Thank You!</h2>
+                            <p>Your feedback has been successfully submitted.</p>
+                            <button type="button" onclick="closePopup()">OK</button>
+                        </div>
                     </div>
                 </div>
+                
             </div>
         </form>
     </div>
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openPopup() {
+            popup.classList.add("open-popup");
+            event.preventDefault();
+        }
+
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
+    </script>
     <script>
         // // make sure that the page is loaded before running anything
         // // need ev always when you use a click event or load event or anything
