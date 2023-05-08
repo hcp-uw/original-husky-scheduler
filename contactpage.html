@@ -51,7 +51,7 @@
                     height: 150px; margin-bottom: 8px;">
                     </textarea>
                     <div class="form-group">
-                        <button id="btnsubmit" class="btnFeedback" value="Submit" style="outline: none;" ></button>
+                        <button id="btnsubmit" class="btnFeedback" value="Submit" style="outline: none;" onclick="returnText()"></button>
                     </div>
                 </div>
             </div>
@@ -91,10 +91,10 @@
         // }
         // test();
 
-        function feedbackForm() {
-            var fs = require('fs');
+        // function feedbackForm() {
+        //     var fs = require('fs');
 
-            let rate = 0;
+        //     let rate = 0;
 
         //     if (rate4.value != null) {
         //         rate = 4;
@@ -125,6 +125,26 @@
         //     //     console.log("JSON data is saved.");
         //     // });
         // }
+
+        // This is how you make java script info into an object
+        const form = document.querySelector('form')
+
+        // when the user clicks the submit button
+        form.addEventListener('submit', (e) => {
+            // stops the actual website from reloading
+            e.preventDefault();
+            // new data payload
+            const fd = new FormData(form);
+            const obj = Object.fromEntries(fd);
+
+            const json = JSON.stringify(obj);
+            localStorage.setItem('form', json);
+
+            // send to another html 
+            window.location.href = "";
+
+
+        })
     </script>
 </body>
 </html>
