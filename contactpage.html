@@ -147,24 +147,22 @@
         // }
 
         // This is how you make java script info into an object
-        const form = document.querySelector('form')
+        // const form = document.querySelector('form')
 
-        // when the user clicks the submit button
-        form.addEventListener('submit', (e) => {
-            // stops the actual website from reloading
-            e.preventDefault();
-            // new data payload
-            const fd = new FormData(form);
-            const obj = Object.fromEntries(fd);
+        // // when the user clicks the submit button
+        // form.addEventListener('submit', (e) => {
+        //     // stops the actual website from reloading
+        //     e.preventDefault();
+        //     // new data payload
+        //     // const fd = new FormData(form);
+        //     // const obj = Object.fromEntries(fd);
 
-            const json = JSON.stringify(obj);
-            localStorage.setItem('form', json);
+        //     // const json = JSON.stringify(obj);
+        //     // localStorage.setItem('form', json);
 
-            // send to another html 
-            window.location.href = "";
-
-
-        })
+        //     // send to another html 
+        //     window.location.href = "";
+        // })
     </script>
 </body>
 </html>

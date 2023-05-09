@@ -1,17 +1,3 @@
-
-// Before running this code make sure to download "npm install requirejs" in terminal
-// Need to do this to be able to use require in js
-// let userName = document.getElementById("userName");
-// let email = document.getElementById("email");
-// let feedback = document.getElementById("feedback");
-// let rate1 = document.getElementById("A");
-// let rate2 = document.getElementById("B");
-// let rate3 = document.getElementById("C");
-// let rate4 = document.getElementById("D");
-// let rate5 = document.getElementById("E");
-// let rate = 0;
-// const infoButton = document.getElementById('btnsubmit')
-
 // make sure that the page is loaded before running anything
 // need ev always when you use a click event or load event or anything
 // const addInfo = (ev)=>{
@@ -37,56 +23,83 @@
 //     document.querySelector('form').reset();
 // }
 
-let infoButton = document.getElementById("submitIt");
-// // runs this code when the btnsub
-if (infoButton) {
-    infoButton.addEventListener('click', saveInfo, false);
-  }
+// let infoButton = document.getElementById("submitIt");
+// // // runs this code when the btnsub
+// if (infoButton) {
+//     infoButton.addEventListener('click', saveInfo, false);
+//     console.log("button");
+//   }
 
-function saveInfo(){
+const form = document.querySelector('submitIt')
+if (form){
+form.addEventListener('submit', (e) => {
+    // stops the actual website from reloading
+    e.preventDefault();
     const fs = require('fs');
-    // if (rate1.value != null) {
-    //     rate = 1;
-    // }
-
-    // if (rate2.value != null) {
-    //     rate = 2;
-    // }
-
-    // if (rate3.value != null) {
-    //     rate = 3;
-    // }
-
-    // if (rate4.value != null) {
-    //     rate = 4;
-    // }
-
-    // if (rate5.value != null) {
-    //     rate = 5;
-    // }
-
-    // create a JSON object
     const user = {
         "name": userName.value,
         "email": email.value,
         "feedback": feedback.value,
         "rating": 5
     };
-
-    // const finished = (error) => {
-    //     if(error){
-    //         console.error(error)
-    //         return;
-    //     }
-    // }
-    // convert JSON object to string
     const data = JSON.stringify(user);
-    fs.writeFile('feedback.json',jsonData,finished)
-    // write JSON string to a file
-    // fs.writeFile('feedback.json', data, (err) => {
-    //     if (err) {
-    //         throw err;
-    //     }
-    //     console.log("JSON data is saved.");
-    // });
+    fs.writeFile('feedback.json', data, (err) => {
+        if (err) {
+            throw err;
+        }
+        console.log("JSON data is saved.");
+    });
+    window.location.href = "";
+})
 }
+
+// function saveInfo(){
+//     const fs = require('fs');
+
+// //     // if (rate1.value != null) {
+// //     //     rate = 1;
+// //     // }
+
+// //     // if (rate2.value != null) {
+// //     //     rate = 2;
+// //     // }
+
+// //     // if (rate3.value != null) {
+// //     //     rate = 3;
+// //     // }
+
+// //     // if (rate4.value != null) {
+// //     //     rate = 4;
+// //     // }
+
+// //     // if (rate5.value != null) {
+// //     //     rate = 5;
+// //     // }
+
+//     // create a JSON object
+//     const user = {
+//         "name": userName.value,
+//         "email": email.value,
+//         "feedback": feedback.value,
+//         "rating": 5
+//     };
+
+//     const finished = (error) => {
+//         if(error){
+//             console.error(error)
+//             return;
+//         }
+//     }
+
+//     // convert JSON object to string
+//     const data = JSON.stringify(user);
+//     fs.writeFile('feedback.json', data, finished)
+    
+//     // write JSON string to a file
+//     // fs.writeFile('feedback.json', data, (err) => {
+//     //     if (err) {
+//     //         throw err;
+//     //     }
+//     //     console.log("JSON data is saved.");
+//     // });
+// }
