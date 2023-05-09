@@ -21,6 +21,11 @@ body {
     margin-bottom: 3%;
     margin-left: 10%;
     margin-right: 10%;
+    transition: filter 0.4s;
+}
+
+.background-blur {
+    filter: blur(4px); 
 }
 
 div {

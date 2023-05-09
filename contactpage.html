@@ -17,7 +17,7 @@
             <img id="home_button" src="huskyschedulerlogo.jpg" alt="image of Husky Scheduler">
         </a>
     </header>
-    <div class="container feedback-form">
+    <div class="container feedback-form" id="container feedback-form">
         <!--
         <div class="feedback-imge">
             <img src="huskyschedulerlogo.jpg" alt="">
@@ -44,22 +44,29 @@
                         4<input type="radio" id="D">
                         5<input type="radio" id="E">
                     </div>
+                    <!-- 
+                        * Fix the dynamic text box, the user should not be able to manipulate the size of the box
+                        * Fix text alignment, the test appears in the middle of the textbox not the front
+                        * Once user hits sumbit, needs some kind of thank you/signification that the form submitted successfully
+                     -->
                     <textarea name="txtMsg" id="feedback" class="form-control" placeholder="" style="width: 600px; 
                     height: 150px; margin-bottom: 8px; vertical-align: top; padding: 10px;"></textarea>
                     <div class="form-group">
-                        <button type="submit" class="btnFeedback" id="submitIt" >Submit</button>
-                        <div class = "popup" id="popup">
-                            <img src="tick.png">
-                            <h2>Thank You!</h2>
-                            <p>Your feedback has been successfully submitted.</p>
-                            <button type="button" onclick="closePopup()">OK</button>
-                        </div>
+                        <button type="submit" class="btnFeedback" id="submitIt" onclick="openPopup(); addBackgroundBlur()">Submit</button>
                     </div>
                 </div>
                 
             </div>
         </form>
     </div>
+
+    <div class = "popup" id="popup">
+        <img src="tick.png">
+        <h2>Thank You!</h2>
+        <p>Your feedback has been successfully submitted.</p>
+        <button type="button" onclick="closePopup(); removeBackgroundBlur()">OK</button>
+    </div>
+
     <script>
         let popup = document.getElementById("popup");
 
@@ -67,11 +74,23 @@
             popup.classList.add("open-popup");
             event.preventDefault();
         }
-
         function closePopup() {
             popup.classList.remove("open-popup");
         }
     </script>
+
+    <script>
+        let page = document.getElementById("container feedback-form");
+
+        function addBackgroundBlur() {
+            page.classList.add("background-blur");
+            event.preventDefault();
+        }
+        function removeBackgroundBlur() {
+            page.classList.remove("background-blur");
+        }
+    </script>
+
     <script>
         // // make sure that the page is loaded before running anything
         // // need ev always when you use a click event or load event or anything
@@ -142,28 +161,24 @@
         // }
 
         // This is how you make java script info into an object
-        // const form = document.querySelector('form')
+        const form = document.querySelector('form')
 
-        // // when the user clicks the submit button
-        // form.addEventListener('submit', (e) => {
-        //     // stops the actual website from reloading
-        //     e.preventDefault();
-        //     // new data payload
-        //     // const fd = new FormData(form);
-        //     // const obj = Object.fromEntries(fd);
+        // when the user clicks the submit button
+        form.addEventListener('submit', (e) => {
+            // stops the actual website from reloading
+            e.preventDefault();
+            // new data payload
+            const fd = new FormData(form);
+            const obj = Object.fromEntries(fd);
 
-        //     // const json = JSON.stringify(obj);
-        //     // localStorage.setItem('form', json);
+            const json = JSON.stringify(obj);
+            localStorage.setItem('form', json);
 
-<<<<<<< Updated upstream
-        //     // send to another html 
-        //     window.location.href = "";
-        // })
-=======
             // send to another html 
             window.location.href = "";
+
+
         })
->>>>>>> Stashed changes
     </script>
 </body>
 </html>
