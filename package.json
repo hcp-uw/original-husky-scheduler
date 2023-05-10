@@ -1,0 +1,19 @@
+{
+  "name": "original-husky-scheduler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "save.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcp-uw/original-husky-scheduler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hcp-uw/original-husky-scheduler/issues"
+  },
+  "homepage": "https://github.com/hcp-uw/original-husky-scheduler#readme"
+}
