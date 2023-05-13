@@ -123,3 +123,6 @@ if (form) {
 // const {readFile, readFileSync } = require('fs');
 // const txt = readFileSync('./test.txt', 'utf8');
 // console.log(txt);
+
+// WEBSITE TO LOOK AT PLEASE!
+// https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm
