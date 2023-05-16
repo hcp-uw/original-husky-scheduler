@@ -1,25 +1,25 @@
-import { writeFile, writeFileSync } from 'fs';
+// import { writeFile, writeFileSync } from 'fs';
 
-const content = 'Some content!';
-const form = document.querySelector('submitIt')
-if (form) {
-    form.addEventListener('submit', () => {
-        const user = {
-            "name": userName.value,
-            "email": email.value,
-            "feedback": feedback.value,
-            "rating": 5
-        };
-        const data = JSON.stringify(user);
-        writeFileSync('test.json', data, err => {
-        if (err) {
-            console.error(err);
-        }
-        // file written successfully
-        console.log("done!");
-        });
-    })
-}
+// const content = 'Some content!';
+// const form = document.querySelector('submitIt')
+// if (form) {
+//     form.addEventListener('submit', () => {
+//         const user = {
+//             "name": userName.value,
+//             "email": email.value,
+//             "feedback": feedback.value,
+//             "rating": 5
+//         };
+//         const data = JSON.stringify(user);
+//         writeFileSync('test.json', data, err => {
+//         if (err) {
+//             console.error(err);
+//         }
+//         // file written successfully
+//         console.log("done!");
+//         });
+//     })
+// }
 
 // code needs to be in node.js, needs node manager
 // pluralist.com
@@ -126,3 +126,27 @@ if (form) {
 
 // WEBSITE TO LOOK AT PLEASE!
 // https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm
+
+var express = require('express');
+var app = express();
+
+app.use(express.static('public'));
+app.get('/contanctpage.html', function (req,res) {
+    res.sendFile(__dirname + "/" + "contactpage.html");
+})
+
+app.get('/process_get', function (req,res){
+    // prepare output in JSON format
+    repsonse = {
+        User_name:req.query.userName
+    };
+    console.log(response);
+    res.end(JSON.stringify(response));
+})
+
+var server = app.listen(8081, function () {
+    var host = server.address().address
+    var port = server.address().port
+
+    console.log("Example app listening at http://%s:%s", host, port)
+})
