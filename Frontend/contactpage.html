@@ -18,14 +18,13 @@
     </header>
     <div class="container feedback-form" id="container feedback-form">
         
-        <form action = "https://127.0.0.1:8081/process_get" method="POST">
+        <form action = "" method="POST" id="feedbackForm">
             <h3>Drop us your feedback</h3>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <input type="text" id="userName" class="form-control" placeholder="Name">
                     </div>
-                    <input type="text" id="userName" class="form-control" placeholder="Name">
                     <div class="form-group">
                         <input type="text" id="email" class="form-control" placeholder="Email">
                     </div>
@@ -84,6 +83,38 @@
             page.classList.remove("background-blur");
         }
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyAHp4jDlL1--Ne-JHrljaPvGaILv3CcmxA",
+        authDomain: "original-husky-scheduler.firebaseapp.com",
+        databaseURL: "https://original-husky-scheduler-default-rtdb.firebaseio.com",
+        projectId: "original-husky-scheduler",
+        storageBucket: "original-husky-scheduler.appspot.com",
+        messagingSenderId: "166063942758",
+        appId: "1:166063942758:web:aa595d79a16b3efaae11a7",
+        measurementId: "G-YEET85ZDZC"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        
+    </script>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
