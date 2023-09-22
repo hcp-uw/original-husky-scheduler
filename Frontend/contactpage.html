@@ -30,14 +30,14 @@
                     </div>
 
                     <!--currently I am unsure how to implement this into the feedback-->
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <p>How would you rate your experience from 1 to 5?</p>
-                        1<input type="radio" id="A">
-                        2<input type="radio" id="B">
-                        3<input type="radio" id="C">
-                        4<input type="radio" id="D">
-                        5<input type="radio" id="E">
-                    </div> -->
+                        1<input type="radio" id="A" name="rating" value="1">
+                        2<input type="radio" id="B" name="rating" value="2">
+                        3<input type="radio" id="C" name="rating" value="3">
+                        4<input type="radio" id="D" name="rating" value="4">
+                        5<input type="radio" id="E" name="rating" value="5">
+                    </div>
 
                     <!-- 
                         * Fix the dynamic text box, the user should not be able to manipulate the size of the box
@@ -101,11 +101,15 @@
             var email = getInputVal('email');
             var feedback = getInputVal('feedback');
 
+            var rating = document.querySelector('input[name="rating"]:checked');
+            var ratingValue = rating ? rating.value : ''; 
+
             set(ref(db, 'user/' + name),
             {
                 username: name,
                 email: email,
-                feedback: feedback
+                feedback: feedback,
+                rating: ratingValue
             });
 
             alert("success");
