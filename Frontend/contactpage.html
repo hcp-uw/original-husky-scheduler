@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<link rel="stylesheet" href="contactpagestyle.css">
+<body>
+    <header>
+        <a href="homepage.html">
+            <img id="home_button" src="huskyschedulerlogo.jpg" alt="image of Husky Scheduler">
+        </a>
+    </header>
+    <div class="container feedback-form" id="container feedback-form">
+        
+        <form action = "" method="POST" id="feedbackForm">
+            <h3>Drop us your feedback</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" id="userName" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="email" class="form-control" placeholder="Email">
+                    </div>
+
+                    <!--currently I am unsure how to implement this into the feedback-->
+                    <div class="form-group">
+                        <p>How would you rate your experience from 1 to 5?</p>
+                        1<input type="radio" id="A" name="rating" value="1">
+                        2<input type="radio" id="B" name="rating" value="2">
+                        3<input type="radio" id="C" name="rating" value="3">
+                        4<input type="radio" id="D" name="rating" value="4">
+                        5<input type="radio" id="E" name="rating" value="5">
+                    </div>
+
+                    <!-- 
+                        * Fix the dynamic text box, the user should not be able to manipulate the size of the box
+                        * Fix text alignment, the test appears in the middle of the textbox not the front
+                        * Once user hits sumbit, needs some kind of thank you/signification that the form submitted successfully
+                     -->
+                    <textarea name="txtMsg" id="feedback" class="form-control" placeholder="" style="width: 600px; 
+                    height: 150px; margin-bottom: 8px; vertical-align: top; padding: 10px;"></textarea>
+                    <div class="form-group">
+                        <!--class="btnFeedback" id="submit" onclick="openPopup(); addBackgroundBlur()"-->
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        // apiKey that should not go public
+        apiKey: "AIzaSyC1Cs3Rtn78Fm7Oa76X5jpFvgxNoK9vNqQ",
+        authDomain: "contactpagehpc.firebaseapp.com",
+        projectId: "contactpagehpc",
+        storageBucket: "contactpagehpc.appspot.com",
+        messagingSenderId: "770567537858",
+        appId: "1:770567537858:web:d9b3e0a89f6e915ce0e75b",
+        measurementId: "G-S3JD4MQLYS"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        // needed to reach firebase database
+        const db = getDatabase(app);
+
+        // listend for form submit
+        // "submitForm" is the function being used
+        const contact = document.getElementById('feedbackForm');
+        if (contact){
+            contact.addEventListener('submit', submitForm);
+        }
+
+
+        // This function dictates what happens when we submit the form
+        function submitForm(e){
+            // stop it from automaically submiting it
+            e.preventDefault();
+
+            // Get the values
+            var name = getInputVal('userName');
+            var email = getInputVal('email');
+            var feedback = getInputVal('feedback');
+
+            var rating = document.querySelector('input[name="rating"]:checked');
+            var ratingValue = rating ? rating.value : ''; 
+
+            set(ref(db, 'user/' + name),
+            {
+                username: name,
+                email: email,
+                feedback: feedback,
+                rating: ratingValue
+            });
+
+            alert("success");
+        }
+
+        // Function to get formm values
+        function getInputVal(id){
+            return document.getElementById(id).value;
+        }
+    </script>
+
+    <!-- <div class = "popup" id="popup">
+        <img src="tick.png">
+        <h2>Thank You!</h2>
+        <p>Your feedback has been successfully submitted.</p>
+        <button type="button" onclick="closePopup(); removeBackgroundBlur()">OK</button>
+    </div> -->
+
+    <!--bottom two scripts are for pop up when submit-->
+    <!-- <script>
+        let popup = document.getElementById("popup");
+
+        function openPopup() {
+            popup.classList.add("open-popup");
+            event.preventDefault();
+        }
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
+    </script>
+
+    <script>
+        let page = document.getElementById("container feedback-form");
+
+        function addBackgroundBlur() {
+            page.classList.add("background-blur");
+            event.preventDefault();
+        }
+        function removeBackgroundBlur() {
+            page.classList.remove("background-blur");
+        }
+    </script> -->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyAHp4jDlL1--Ne-JHrljaPvGaILv3CcmxA",
+        authDomain: "original-husky-scheduler.firebaseapp.com",
+        databaseURL: "https://original-husky-scheduler-default-rtdb.firebaseio.com",
+        projectId: "original-husky-scheduler",
+        storageBucket: "original-husky-scheduler.appspot.com",
+        messagingSenderId: "166063942758",
+        appId: "1:166063942758:web:aa595d79a16b3efaae11a7",
+        measurementId: "G-YEET85ZDZC"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        
+    </script>
+
+    <script src="script.js"></script> -->
+
+</body>
+</html>
+
+
+<!--our error with save.js and what we need to do to fix it!!!-->
+<!-- fs is a Node.js built-in module. It does things which browsers do not allow JavaScript to do (like access the file system).
+
+If you want to use the fs module then you can't use it directly from the browser. Instead, write a web service in Node.js (the Express.js module is useful here) and access it from the browser using Ajax (e.g. the fetch API). This will deal with the server's file system, not the browser's.
+
+If you want to access files on the user's computer, then you'll need to use <input type="file"> and the FileReader API. -->
