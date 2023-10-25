@@ -1,0 +1,135 @@
+header img {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: left;
+}
+
+body {
+    background: linear-gradient(to bottom, #E1C2FF, #fff);
+    font-family: "Open Sans", sans-serif;
+}
+
+
+.feedback-form {
+    background: #F5F5F5;
+    background-image: linear-gradient(to bottom, #F5F5F5, #EAEAEA);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: 7%;
+    margin-bottom: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+    transition: filter 0.4s;
+}
+
+.background-blur {
+    filter: blur(4px); 
+}
+
+div {
+    padding: 10px;
+}
+
+.feedback-form .form-control {
+    border-radius: 1rem;
+    resize: none;
+    border: none; 
+    height: 25px;
+    padding-left: 10px;
+}
+
+feedback-image {
+    text-align: center;
+}
+
+.feedback-image img {
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+
+.feedback-form form {
+    padding: 14%;
+}
+
+.feedback-form form .row {
+    margin-bottom: -7%;
+}
+
+.feedback-form h3 {
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #000000;
+    font-family: Montserrat, sans-serif;
+}
+
+.feedback-form .btnFeedback {
+    border: none;
+    border-radius: 1rem;
+    padding: 10px 60px;
+    background: #E1C2FF;
+    font-weight: 600;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+}
+
+.feedback-form p {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    color: #000000;
+    font-family: Montserrat, sans-serif;
+}
+
+.popup {
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
