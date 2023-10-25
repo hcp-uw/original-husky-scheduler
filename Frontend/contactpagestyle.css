@@ -13,7 +13,7 @@ body {
 
 .feedback-form {
     background: #F5F5F5;
-    background-image: linear-gradient(to bottom, #F5F5F5, #EAEAEA)
+    background-image: linear-gradient(to bottom, #F5F5F5, #EAEAEA);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
