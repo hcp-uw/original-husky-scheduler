@@ -1,16 +1,16 @@
 body {
-    text-align: center;
-    margin: 50px;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #843c9d;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #3a1945;
+    background-image: linear-gradient(#3a1945,#843c9d);
+    background-attachment: fixed;
 }
 
  .header {
     color: #ffffff;
-    background-color: black;
     font-size: 25px;
-    padding: 10px;
     display: inline;
+    align-items: center;
+    margin-top: -50px;
     
 }
 
@@ -128,15 +128,6 @@ h2 {
     color: #3a1945;
 }
 
-body {
-    text-align: center;
-    margin: 50px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #3a1945;
-    background-image: linear-gradient(#3a1945,#843c9d);
-    background-attachment: fixed;
-}
-
 #home_button {
     width: 100px;
     height: 100px;
@@ -150,6 +141,7 @@ body {
 } */
 
 #search_bar {
+    text-align: center;
     justify-content: center;
     padding-top: 10px;
     margin-bottom: 70px;
@@ -190,6 +182,7 @@ body {
 }
 
 h1 {
+    text-align: center;
     font-size: 55px;
     padding-top: 100px;
     color: #ffffff;
