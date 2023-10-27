@@ -1,17 +1,33 @@
 body {
     text-align: center;
     margin: 50px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, mospace;
     background-color: #843c9d;
 }
 
- .header {
+.header {
+    text-align: center;
     color: #ffffff;
-    background-color: black;
-    font-size: 25px;
+    font-size: 35px;
     padding: 10px;
-    display: inline;
-    
+}
+
+.header h1 {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color:#3a1945;
+    filter: drop-shadow(2px 2px 0 #210e27);
+}
+
+.header p {
+    border: solid #3a1945;
+    border-width: 2.5px;
+    border-radius: 12px;
+    background-color: #BFA3CC;
+    /* box-shadow: 2px 2px 0 0 #3a1945; */
+    font-size: 24px;
+    padding: 20px;
+    text-align: left;
+    -webkit-text-stroke-color:#3a1945;
 }
 
 .button {
@@ -126,74 +142,4 @@ h2 {
     font-size: 30px;
     padding: 25px;
     color: #3a1945;
-}
-
-body {
-    text-align: center;
-    margin: 50px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #3a1945;
-    background-image: linear-gradient(#3a1945,#843c9d);
-    background-attachment: fixed;
-}
-
-#home_button {
-    width: 100px;
-    height: 100px;
-    filter: drop-shadow(4px 4px 0 #210e27);
-}
-
-/* .logo :active {
-    transform: translateX(4px);
-    transform: translateY(4px);
-    filter: drop-shadow(4px 4px 0 #843c9d);
-} */
-
-#search_bar {
-    justify-content: center;
-    padding-top: 10px;
-    margin-bottom: 70px;
-}
-
-#search_bar input {
-    height: 45px;
-    border-radius: 80px;
-    font-size: large;
-}
-
-#generate_button {
-    color: #ffff;
-    background-color: #BFA3CC;
-    filter: drop-shadow(2px 10px 0 #210e27);
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 35px;
-    font-weight: 50;
-    height: 300px;
-    width: 300px;
-    line-height: 300px;
-    border-radius: 150px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
-
-#course_info {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #E7CFEF;
-    border-radius: 30px;
-    padding: 10px;
-    margin: auto auto;
-    max-width: 600px;
-}
-
-h1 {
-    font-size: 55px;
-    padding-top: 100px;
-    color: #ffffff;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color:#210e27;
-    filter: drop-shadow(4px 4px 0 #210e27);
 }
